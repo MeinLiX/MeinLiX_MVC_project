@@ -1,0 +1,55 @@
+﻿@model IEnumerable<MeinLiX.Organisation>
+
+@{
+    ViewData["Title"] = "Organisations";
+}
+
+<h1>Organisation List</h1>
+
+<p>
+    <a asp-action="Create">Create New Organisation</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.OrganisationName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdRegionNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrganisationWebpage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrganisationFoundation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrganisationName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdRegionNavigation.RegionName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrganisationWebpage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrganisationFoundation)
+            </td>
+            <td>
+                
+                <a asp-action="Sponsorship" asp-route-id="@item.IdOrganisation">Sponsorship</a>
+                <a asp-action="Edit" asp-route-id="@item.IdOrganisation">Edit</a>
+                <a asp-action="Details" asp-route-id="@item.IdOrganisation">Details</a>
+                <a asp-action="Delete" asp-route-id="@item.IdOrganisation">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

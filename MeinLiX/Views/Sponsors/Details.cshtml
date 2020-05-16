@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewData["Title"] = "Deteils";
+}
+
+
+<h1>@ViewBag.SponsorName sponsored</h1>
+
+<form>
+    <p>Organisations(@ViewBag.OrganisationsCount):</p>
+    <select class="form-control" asp-items="ViewBag.Organisations"></select>
+    <br>
+    <p>Players(@ViewBag.PlayersCount):</p>
+    <select class="form-control" asp-items="ViewBag.Players"></select>
+    <br>
+    <p>Events(@ViewBag.EventsCount):</p>
+    <select class="form-control" asp-items="ViewBag.Events"></select>
+</form>
+

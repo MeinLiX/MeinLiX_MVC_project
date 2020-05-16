@@ -1,0 +1,47 @@
+﻿@model IEnumerable<MeinLiX.Sponsor>
+
+@{
+    ViewData["Title"] = "Sponsors";
+}
+
+<h1>Sponsor List</h1>
+
+<p>
+    <a asp-action="Create">Create New Sponsor</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SponsorName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SponsorWebpage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SponsorFoundation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SponsorName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SponsorWebpage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SponsorFoundation)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdSponsor">Edit</a>
+                <a asp-action="Details" asp-route-id="@item.IdSponsor">Details</a>
+                <a asp-action="Delete" asp-route-id="@item.IdSponsor">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,44 @@
+﻿@model MeinLiX.Sponsor
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Sponsor</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="IdSponsor" />
+            <div class="form-group">
+                <label asp-for="SponsorName" class="control-label"></label>
+                <input asp-for="SponsorName" class="form-control" />
+                <span asp-validation-for="SponsorName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SponsorWebpage" class="control-label"></label>
+                <input asp-for="SponsorWebpage" class="form-control" />
+                <span asp-validation-for="SponsorWebpage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SponsorFoundation" class="control-label"></label>
+                <input asp-for="SponsorFoundation" class="form-control" />
+                <span asp-validation-for="SponsorFoundation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

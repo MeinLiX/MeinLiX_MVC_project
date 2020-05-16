@@ -1,0 +1,43 @@
+﻿@model MeinLiX.Subdivision
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit Subdivision</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="IdSubdivision" />
+            <div class="form-group">
+                <label asp-for="IdOrganisation" class="control-label"></label>
+                <select asp-for="IdOrganisation" class="form-control" asp-items="ViewBag.IdOrganisation"></select>
+                <span asp-validation-for="IdOrganisation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdGame" class="control-label"></label>
+                <select asp-for="IdGame" class="form-control" asp-items="ViewBag.IdGame"></select>
+                <span asp-validation-for="IdGame" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SubdivisionFoundation" class="control-label"></label>
+                <input asp-for="SubdivisionFoundation" class="form-control" />
+                <span asp-validation-for="SubdivisionFoundation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

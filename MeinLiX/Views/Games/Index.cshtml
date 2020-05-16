@@ -1,0 +1,35 @@
+﻿@model IEnumerable<MeinLiX.Game>
+
+@{
+    ViewData["Title"] = "Games";
+}
+
+    <h1>Game List</h1>
+
+<p>
+    <a asp-action="Create">Add New Game</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.GameName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.GameName)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdGame">Edit</a> 
+                <a asp-action="Details" asp-route-id="@item.IdGame">Details</a> 
+                <a asp-action="Delete" asp-route-id="@item.IdGame">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

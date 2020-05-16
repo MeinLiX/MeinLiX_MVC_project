@@ -1,0 +1,60 @@
+﻿@model IEnumerable<MeinLiX.Event>
+
+@{
+    ViewData["Title"] = "Events";
+}
+
+<h1>Event list</h1>
+
+<p>
+    <a asp-action="Create">Create New Event</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.EventName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EventLocation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EventWebpage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EventPrizeFund)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EventStartDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.EventName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EventLocation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EventWebpage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EventPrizeFund)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EventStartDate)
+            </td>
+            <td>
+                <a asp-action="Sponsorship" asp-route-id="@item.IdEvent">Sponsorship</a>
+                <a asp-action="Edit" asp-route-id="@item.IdEvent">Edit</a>
+                <a asp-action="Details" asp-route-id="@item.IdEvent">Details</a>
+                <a asp-action="Delete" asp-route-id="@item.IdEvent">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

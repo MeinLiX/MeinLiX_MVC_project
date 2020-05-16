@@ -1,0 +1,59 @@
+﻿@model IEnumerable<MeinLiX.ContractOrganisation>
+
+@{
+    ViewData["Title"] = "Sponsorship";
+}
+
+<h1>Organisation:@ViewBag.organisationName - Sponsors</h1>
+
+<p>
+    <a class="CreateButton" asp-action="CreateContract" asp-route-id="@ViewBag.organisationId">Add Sponsor</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IdSponsorNavigation.SponsorName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdSponsorNavigation.SponsorWebpage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ContractValidUntil)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ContractBalance)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdSponsorNavigation.SponsorName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdSponsorNavigation.SponsorWebpage)
+                </td>
+                @if (item.ContractValidUntil < DateTime.Today)
+                {
+                    <td>
+                        <p class="out-date">Time expired @Html.DisplayFor(modelItem => item.ContractValidUntil)</p>
+                    </td>
+                }
+                else
+                {
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ContractValidUntil)
+                    </td>
+                }
+
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.ContractBalance)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

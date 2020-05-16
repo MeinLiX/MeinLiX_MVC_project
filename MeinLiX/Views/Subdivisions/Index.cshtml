@@ -1,0 +1,54 @@
+﻿@model IEnumerable<MeinLiX.Subdivision>
+
+@{
+    ViewData["Title"] = "Subdivisions";
+}
+
+<h1> @ViewBag.organisationNAME Subdivision List</h1>
+
+<p>
+    <a asp-action="Create" asp-route-id="@ViewBag.organisationID">Create New Subdivisions</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SubdivisionName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SubdivisionFoundation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdGameNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdOrganisationNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SubdivisionName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SubdivisionFoundation)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdGameNavigation.GameName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdOrganisationNavigation.OrganisationName)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.IdSubdivision">Edit</a> 
+                    <a asp-action="Details" asp-route-id="@item.IdSubdivision">Details</a> 
+                    <a asp-action="Delete" asp-route-id="@item.IdSubdivision">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,48 @@
+﻿@model MeinLiX.Event
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Event</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.EventName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.EventName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.EventLocation)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.EventLocation)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.EventWebpage)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.EventWebpage)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.EventPrizeFund)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.EventPrizeFund)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.EventStartDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.EventStartDate)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.IdEvent">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
