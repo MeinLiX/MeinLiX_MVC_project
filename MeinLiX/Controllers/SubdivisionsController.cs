@@ -50,7 +50,7 @@ namespace MeinLiX.Controllers
             var subdivision = await _context.Subdivision
                 .Include(s => s.IdOrganisationNavigation)
                 .FirstOrDefaultAsync(m => m.IdSubdivision == id);
-
+            ViewBag.organisationID = subdivision.IdOrganisation;
             if (subdivision == null)
             {
                 return NotFound();
@@ -64,7 +64,15 @@ namespace MeinLiX.Controllers
             ViewData["IdOrganisation"] = new SelectList(_context.Organisation, "IdOrganisation", "OrganisationName", id);
             var org = await _context.Organisation.FindAsync(id);
             var sub = new Subdivision();
-            if (org != null) sub.IdOrganisation = org.IdOrganisation;
+            if (org != null)
+            {
+                sub.IdOrganisation = org.IdOrganisation;
+                ViewBag.organisationID = org.IdOrganisation;
+            }
+            else
+            {
+                ViewBag.organisationID = null;
+            }
             sub.SubdivisionFoundation = DateTime.Today;
             return View(sub);
         }
@@ -96,6 +104,7 @@ namespace MeinLiX.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index), new { id = subdivision.IdOrganisation });
             }
+            ViewBag.organisationID = subdivision.IdOrganisation;
             ViewData["IdGame"] = new SelectList(_context.Game, "IdGame", "GameName", subdivision.IdGame);
             ViewData["IdOrganisation"] = new SelectList(_context.Organisation, "IdOrganisation", "OrganisationName", subdivision.IdOrganisation);
             return View(subdivision);
@@ -113,6 +122,7 @@ namespace MeinLiX.Controllers
             {
                 return NotFound();
             }
+            ViewBag.organisationID = subdivision.IdOrganisation;
             ViewData["IdGame"] = new SelectList(_context.Game, "IdGame", "GameName", subdivision.IdGame);
             ViewData["IdOrganisation"] = new SelectList(_context.Organisation, "IdOrganisation", "OrganisationName", subdivision.IdOrganisation);
             return View(subdivision);
@@ -162,6 +172,7 @@ namespace MeinLiX.Controllers
                 }
                 return RedirectToAction(nameof(Index), new { id = subdivision.IdOrganisation });
             }
+            ViewBag.organisationID = subdivision.IdOrganisation;
             ViewData["IdGame"] = new SelectList(_context.Game, "IdGame", "GameName", subdivision.IdGame);
             ViewData["IdOrganisation"] = new SelectList(_context.Organisation, "IdOrganisation", "OrganisationName", subdivision.IdOrganisation);
             return View(subdivision);
@@ -182,6 +193,7 @@ namespace MeinLiX.Controllers
             {
                 return NotFound();
             }
+            ViewBag.organisationID = subdivision.IdOrganisation;
 
             return View(subdivision);
         }

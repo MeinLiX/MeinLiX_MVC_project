@@ -28,7 +28,7 @@
             <div id="Functional" class="tab-pane fade">
                 <h3>Functional</h3>
                 <p>On this site you can found cybersports organisations our teams (subdivisions) and players.</p>
-                <p>As well as information about their sponsors.</p>\
+                <p>As well as information about their sponsors.</p>
                 <p>And also add your data.</p>
             </div>
             <div id="Pink_Theme" class="tab-pane fade">
@@ -38,8 +38,48 @@
             </div>
             <div id="Diagram" class="tab-pane fade">
                 <h3>Diagram</h3>
-                <p>It will be soon...</p>
+                <div class="container text-center">
+                    <div id="OrgGame" class="inline"></div>
+                    <div id="Sponsored" class="inline"></div>
+                </div>
             </div>
         </div>
     </div>
 </div>
+
+
+@section scripts{
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+    <script>
+        google.charts.load('current', { packages: ['corechart'] });
+        google.charts.setOnLoadCallback(drawChartGame);
+
+        google.charts.load('current', { packages: ['Table'] });
+        google.charts.setOnLoadCallback(drawChartSponsor);
+
+
+        function drawChartGame() {
+            $.get('/Api/Game', function (JsonData) {
+                data = google.visualization.arrayToDataTable(JsonData, false);
+                var option = {
+                    title: "Game Teams",
+                };
+                chart = new google.visualization.PieChart(document.getElementById('OrgGame'));
+                chart.draw(data, option);
+            })
+        }
+        function drawChartSponsor() {
+            $.get('/Api/Sponsor', function (JsonData) {
+                data = google.visualization.arrayToDataTable(JsonData, false);
+                var option = {
+                    title: "Sponsored stats",
+                };
+                chart = new google.visualization.Table(document.getElementById('Sponsored'));
+                chart.draw(data, option);
+            })
+        }
+
+
+    </script>
+}

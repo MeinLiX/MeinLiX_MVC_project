@@ -13,7 +13,7 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="IdOrganisation" class="control-label"></label>
-                <select asp-for="IdOrganisation" class ="form-control" asp-items="ViewBag.IdOrganisation"></select>
+                <select asp-for="IdOrganisation" class="form-control" asp-items="ViewBag.IdOrganisation"></select>
             </div>
             <div class="form-group">
                 <label asp-for="IdGame" class="control-label"></label>
@@ -33,7 +33,7 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index" asp-route-id="@ViewBag.organisationID">Back to Subdivision List</a>
 </div>
 
 @section Scripts {

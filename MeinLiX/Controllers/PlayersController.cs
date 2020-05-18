@@ -33,6 +33,7 @@ namespace MeinLiX.Controllers
             }
             ViewBag.PlayerID = player_data.IdPlayer;
             ViewBag.PlayerNickName = player_data.PlayerNickname;
+            ViewBag.subdivisionId = player_data.IdSubdivision;
             var Sponsors = _context.ContractPlayer.Where(o => o.IdPlayer == id).Include(o => o.IdSponsorNavigation);
             return View(Sponsors);
         }
@@ -70,26 +71,29 @@ namespace MeinLiX.Controllers
                 return NotFound();
             }
 
-            var player = await _context.Player
+            var player_data = await _context.Player
                 .Include(p => p.IdSubdivisionNavigation)
                 .FirstOrDefaultAsync(m => m.IdPlayer == id);
-            if (player == null)
+
+            if (player_data == null)
             {
                 return NotFound();
             }
+            ViewBag.subdivisionId = player_data.IdSubdivision;
 
-            return View(player);
+            return View(player_data);
         }
 
         public IActionResult Create(int? id)
         {
-            Player player = new Player();
-            player.PlayerJoin = DateTime.Today;
-            player.PlayerBirth = DateTime.MinValue;
-            player.IdSubdivision = id;
-            ViewData["IdSubdivision"] = new SelectList(_context.Subdivision, "IdSubdivision", "SubdivisionName", player.IdSubdivision);
+            Player player_data = new Player();
+            player_data.PlayerJoin = DateTime.Today;
+            player_data.PlayerBirth = DateTime.MinValue;
+            player_data.IdSubdivision = id;
+            ViewData["IdSubdivision"] = new SelectList(_context.Subdivision, "IdSubdivision", "SubdivisionName", player_data.IdSubdivision);
+            ViewBag.subdivisionId = player_data.IdSubdivision;
             //need add empty item
-            return View(player);
+            return View(player_data);
         }
 
         [HttpPost]
@@ -135,8 +139,9 @@ namespace MeinLiX.Controllers
             {
                 _context.Add(player);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index", "Players", new { id = player.IdSubdivision });
             }
+            ViewBag.subdivisionId = player.IdSubdivision;
             ViewData["IdSubdivision"] = new SelectList(_context.Subdivision, "IdSubdivision", "SubdivisionName", player.IdSubdivision);
             return View(player);
         }
@@ -153,7 +158,7 @@ namespace MeinLiX.Controllers
             {
                 return NotFound();
             }
-
+            ViewBag.subdivisionId = player.IdSubdivision;
             ViewData["IdSubdivision"] = new SelectList(_context.Subdivision, "IdSubdivision", "SubdivisionName", player.IdSubdivision);
             return View(player);
         }
@@ -219,8 +224,9 @@ namespace MeinLiX.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index", "Players", new { id = player.IdSubdivision });
             }
+            ViewBag.subdivisionId = player.IdSubdivision;
             ViewData["IdSubdivision"] = new SelectList(_context.Subdivision, "IdSubdivision", "SubdivisionName", player.IdSubdivision);
             return View(player);
         }
@@ -239,6 +245,7 @@ namespace MeinLiX.Controllers
             {
                 return NotFound();
             }
+            ViewBag.subdivisionId = player.IdSubdivision;
 
             return View(player);
         }
@@ -253,7 +260,7 @@ namespace MeinLiX.Controllers
             {
                 _context.Player.Remove(player);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));//"Can't be deleted!"
+                return RedirectToAction("Index", "Players", new { id = player.IdSubdivision });
             }
             catch
             {
@@ -273,8 +280,8 @@ namespace MeinLiX.Controllers
             {
                 return NotFound();
             }
+            ViewBag.playerID = id;
             ViewBag.PlayerNickName = player_data.PlayerNickname;
-
             ViewData["Sponsors"] = new SelectList(_context.Sponsor, "IdSponsor", "SponsorName");
             return View();
         }
@@ -308,9 +315,9 @@ namespace MeinLiX.Controllers
                 contract.IdPlayer = id.GetValueOrDefault();
                 _context.Add(contract);
                 await _context.SaveChangesAsync();
-                return RedirectToAction("Sponsorship", "Players", new { id = id });
+                return RedirectToAction("Sponsorship", "Players", new { id = contract.IdPlayer });
             }
-
+            ViewBag.playerID = id;
             ViewData["Sponsors"] = new SelectList(_context.Sponsor, "IdSponsor", "SponsorName");
             return View();
         }

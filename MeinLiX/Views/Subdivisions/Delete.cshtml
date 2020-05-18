@@ -39,6 +39,6 @@
     <form asp-action="Delete">
         <input type="hidden" asp-for="IdSubdivision" />
         <input type="submit" value="Confirm Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
+        <a asp-action="Index" asp-route-id="@ViewBag.organisationID">Back to Subdivision List</a>
     </form>
 </div>

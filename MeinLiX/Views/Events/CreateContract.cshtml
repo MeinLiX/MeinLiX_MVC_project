@@ -32,6 +32,10 @@
     </div>
 </div>
 
+<div>
+    <a asp-action="Sponsorship" asp-route-id="@ViewBag.EventId">Back to Sponsorship Event List</a>
+</div>
+
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }

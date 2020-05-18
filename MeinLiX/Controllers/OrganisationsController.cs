@@ -211,7 +211,7 @@ namespace MeinLiX.Controllers
                 return NotFound();
             }
             ViewBag.organisationName = organisation_data.OrganisationName;
-
+            ViewBag.organisationId = id;
             ViewData["Sponsors"] = new SelectList(_context.Sponsor, "IdSponsor", "SponsorName");
             return View();
         }
@@ -247,7 +247,7 @@ namespace MeinLiX.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Sponsorship", "Organisations", new { id = id });
             }
-
+            ViewBag.organisationId = contract.IdOrganisation;
             ViewData["Sponsors"] = new SelectList(_context.Sponsor, "IdSponsor", "SponsorName", contract.IdSponsor);
             return View();
         }

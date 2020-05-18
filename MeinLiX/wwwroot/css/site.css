@@ -18,16 +18,24 @@ a {
     text-decoration: none;
 }
 
-.out-date {
-    background-color: #e64f4f;
-    border-radius:5rem;
+.nav.nav-tabs > li {
+    margin-right: 1ch;
 }
 
-    a:hover {
-        color: #b68198;
-        background-color: #e5e5e5;
-        text-decoration: none;
+    .nav.nav-tabs > li:last-child {
+        margin-right: 0;
     }
+
+.out-date {
+    background-color: #e64f4f;
+    border-radius: 5rem;
+}
+
+a:hover {
+    color: #b68198;
+    background-color: #e5e5e5;
+    text-decoration: none;
+}
 
 .btn-primary {
     color: #fff;
@@ -208,4 +216,8 @@ footer {
     padding: 0rem;
     background-color: #efefef;
     text-align: center;
+}
+
+.inline {
+    display: inline-block;
 }
