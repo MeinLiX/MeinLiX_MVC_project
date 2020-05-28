@@ -11,7 +11,9 @@ namespace MeinLiX.Controllers
 {
     public class HomeController : Controller
     {
+#pragma warning disable IDE0052 // Remove unread private members
         private readonly ILogger<HomeController> _logger;
+#pragma warning restore IDE0052 // Remove unread private members
 
         public HomeController(ILogger<HomeController> logger)
         {
@@ -46,6 +48,15 @@ namespace MeinLiX.Controllers
         public IActionResult Open_Events()
         {
             return RedirectToAction("Index", "Events");
+        }
+
+        public IActionResult Roles()
+        {
+            return RedirectToAction("Index", "Roles");
+        }
+        public IActionResult Users()
+        {
+            return RedirectToAction("Index", "Users");
         }
 
         public IActionResult Index()

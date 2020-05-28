@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using System.Security.Claims;
+@using Microsoft.AspNetCore.Identity;
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -35,6 +37,45 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
+
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            var claimsIdentity = User.Identity as System.Security.Claims.ClaimsIdentity;
+                            var customUserClaim = claimsIdentity != null ? claimsIdentity.Claims.FirstOrDefault(x => x.Type == "customType") : null;
+                            var customTypeValue = customUserClaim != null ? customUserClaim.Value : User.Identity.Name;
+                            var roleOfUser = claimsIdentity != null ? claimsIdentity.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Role).Value : "User";
+
+                            @if (roleOfUser == "admin")
+                            {
+                                <li class="dropdown tools">
+                                    <button class="dropbtn">Tools</button>
+                                    <div class="dropdown-content">
+                                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Roles">Roles</a>
+                                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Users">Users</a>
+                                    </div>
+                                </li>
+                            }
+
+                            <li class="navbar-brand">
+                                <a> | @User.Identity.Name </a>
+                            </li>
+                            <li class="nav-item">
+                                <form method="post">
+                                    <input asp-area="" asp-controller="Account" asp-action="Logout" type="submit" value="Logout" class="btn" />
+                                </form>
+                            </li>
+
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link btn" asp-area="" asp-controller="Account" asp-action="Login">Login</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link btn" asp-area="" asp-controller="Account" asp-action="Register">Register</a>
+                            </li>
+                        }
+
                     </ul>
                 </div>
             </div>

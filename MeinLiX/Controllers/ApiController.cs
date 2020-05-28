@@ -59,6 +59,7 @@ namespace MeinLiX.Controllers
             {
                 result.Add(new object[] { o.GameName, o.Subdivision.Count() });
             }
+            
             return new JsonResult(result);
         }
 

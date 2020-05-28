@@ -1,0 +1,28 @@
+﻿@model IEnumerable<MeinLiX.Models.User>
+@{
+    ViewBag.Title = "User List";
+}
+<h1>User List</h1>
+<a asp-action="Create">Add new user</a>
+
+<table class="table">
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.UserName)</th>
+        <th>@Html.DisplayNameFor(model => model.Year)</th>
+        <th></th>
+    </tr>
+    @foreach (var user in Model)
+    {
+        <tr>
+            <td>@user.Email</td>
+            <td>@user.Year</td>
+            <td>
+                <form asp-action="Delete" asp-route-id="@user.Id" method="post">
+                    <a class="btn btn-sm btn-primary" asp-action="Edit" asp-route-id="@user.Id">Edit</a> |
+                    <a class="btn btn-sm btn-primary" asp-controller="Roles" asp-action="Edit" asp-route-userid="@user.Id">EditRole</a> |
+                    <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                </form>
+            </td>
+        </tr>
+    }
+</table>

@@ -65,8 +65,10 @@ namespace MeinLiX.Controllers
         public IActionResult Create()
         {
             ViewData["IdRegion"] = new SelectList(_context.Region, "IdRegion", "RegionName");
-            var org = new Organisation();
-            org.OrganisationFoundation = DateTime.Today;
+            var org = new Organisation
+            {
+                OrganisationFoundation = DateTime.Today
+            };
             return View(org);
         }
 
@@ -245,7 +247,7 @@ namespace MeinLiX.Controllers
                 contract.IdOrganisation = id.GetValueOrDefault();
                 _context.Add(contract);
                 await _context.SaveChangesAsync();
-                return RedirectToAction("Sponsorship", "Organisations", new { id = id });
+                return RedirectToAction("Sponsorship", "Organisations", new { id });
             }
             ViewBag.organisationId = contract.IdOrganisation;
             ViewData["Sponsors"] = new SelectList(_context.Sponsor, "IdSponsor", "SponsorName", contract.IdSponsor);

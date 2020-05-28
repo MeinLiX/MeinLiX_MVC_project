@@ -1,5 +1,23 @@
-﻿.nav-tabs li a {
-    color: #b68198;
+﻿body {
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.input {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    margin-bottom: 25px;
+    border: 2px solid #e9eaea;
+    color: #3e3e40;
+    font-size: 14px;
+    outline: none;
+    transform: all 0.5s ease;
+}
+
+.nav-tabs li a {
+    color: #b68198;  
 }
 
 a.navbar-brand {

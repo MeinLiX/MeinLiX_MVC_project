@@ -1,0 +1,33 @@
+﻿@model MeinLiX.ViewModel.RegisterViewModel
+@{
+    ViewData["Title"] = "Sign up";
+}
+
+<h1>Sign up</h1>
+
+<form method="post" asp-controller="Account" asp-action="Register">
+    <div asp-validation-summary="ModelOnly"></div>
+    <div>
+        <label asp-for="Email"></label><br />
+        <input asp-for="Email" />
+        <span asp-validation-for="Email"></span>
+    </div>
+    <div>
+        <label asp-for="Year"></label><br />
+        <input asp-for="Year" />
+        <span asp-validation-for="Year"></span>
+    </div>
+    <div>
+        <label asp-for="Password"></label><br />
+        <input asp-for="Password" />
+    </div>
+    <div>
+        <label asp-for="PasswordConfirm"></label><br />
+        <input asp-for="PasswordConfirm" />
+    </div>
+    <div>
+        <input type="submit" value="Register" class="btn btn-success" />
+    </div>
+</form>
+
+

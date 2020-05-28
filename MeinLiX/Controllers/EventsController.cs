@@ -236,7 +236,7 @@ namespace MeinLiX.Controllers
                 contract.IdEvent = id.GetValueOrDefault();
                 _context.Add(contract);
                 await _context.SaveChangesAsync();
-                return RedirectToAction("Sponsorship", "Events", new { id = id });
+                return RedirectToAction("Sponsorship", "Events", new { id });
             }
             ViewBag.eventId = contract.IdEvent;
             ViewData["Sponsors"] = new SelectList(_context.Sponsor, "IdSponsor", "SponsorName", contract.IdSponsor);

@@ -1,0 +1,24 @@
+﻿
+@model MeinLiX.ViewModel.EditUserViewModel
+@{
+    ViewBag.Title = "User edit";
+}
+<form asp-action="Edit" asp-controller="Users">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="form-group">
+        <input type="hidden" asp-for="Id" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Email" class="control-label"></label>
+        <input type="text" asp-for="Email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Year" class="control-label"></label>
+        <input type="number" asp-for="Year" class="form-control" />
+        <span asp-validation-for="Year" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Save" class="btn btn-outline-secondary" />
+    </div>
+</form>

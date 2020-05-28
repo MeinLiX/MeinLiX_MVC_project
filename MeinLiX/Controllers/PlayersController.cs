@@ -86,10 +86,12 @@ namespace MeinLiX.Controllers
 
         public IActionResult Create(int? id)
         {
-            Player player_data = new Player();
-            player_data.PlayerJoin = DateTime.Today;
-            player_data.PlayerBirth = DateTime.MinValue;
-            player_data.IdSubdivision = id;
+            Player player_data = new Player
+            {
+                PlayerJoin = DateTime.Today,
+                PlayerBirth = DateTime.MinValue,
+                IdSubdivision = id
+            };
             ViewData["IdSubdivision"] = new SelectList(_context.Subdivision, "IdSubdivision", "SubdivisionName", player_data.IdSubdivision);
             ViewBag.subdivisionId = player_data.IdSubdivision;
             //need add empty item
