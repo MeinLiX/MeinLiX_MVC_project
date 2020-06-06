@@ -19,10 +19,15 @@ namespace MeinLiX.Controllers
         {
             _logger = logger;
         }
-        //TODO::
+
+        public IActionResult SQL_Index()
+        {
+            return RedirectToAction("Index", "SQL");
+        }
+
         public IActionResult Open_Organisations()
         {
-            return RedirectToAction("Index", "Organisations");//+
+            return RedirectToAction("Index", "Organisations");
         }
 
         public IActionResult Open_Subdivisions()

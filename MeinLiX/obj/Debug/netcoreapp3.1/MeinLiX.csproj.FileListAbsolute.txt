@@ -408,3 +408,12 @@ Y:\RiXi\project\source\repos UNIVER\labs 2ks\IStaTP 2 semestr\MeinLiX\MeinLiX\ob
 Y:\RiXi\project\source\repos UNIVER\labs 2ks\IStaTP 2 semestr\MeinLiX\MeinLiX\obj\Debug\netcoreapp3.1\Razor\Views\Users\Edit.cshtml.g.cs
 Y:\RiXi\project\source\repos UNIVER\labs 2ks\IStaTP 2 semestr\MeinLiX\MeinLiX\obj\Debug\netcoreapp3.1\Razor\Views\Users\Index.cshtml.g.cs
 Y:\RiXi\project\source\repos UNIVER\labs 2ks\IStaTP 2 semestr\MeinLiX\MeinLiX\bin\Debug\netcoreapp3.1\MailKit.dll
+Y:\RiXi\project\source\repos UNIVER\labs 2ks\IStaTP 2 semestr\MeinLiX\MeinLiX\obj\Debug\netcoreapp3.1\Razor\Views\SQL\Index.cshtml.g.cs
+Y:\RiXi\project\source\repos UNIVER\labs 2ks\IStaTP 2 semestr\MeinLiX\MeinLiX\obj\Debug\netcoreapp3.1\Razor\Views\SQL\Queries2.cshtml.g.cs
+Y:\RiXi\project\source\repos UNIVER\labs 2ks\IStaTP 2 semestr\MeinLiX\MeinLiX\obj\Debug\netcoreapp3.1\Razor\Views\SQL\Error.cshtml.g.cs
+Y:\RiXi\project\source\repos UNIVER\labs 2ks\IStaTP 2 semestr\MeinLiX\MeinLiX\obj\Debug\netcoreapp3.1\Razor\Views\SQL\Queries3.cshtml.g.cs
+Y:\RiXi\project\source\repos UNIVER\labs 2ks\IStaTP 2 semestr\MeinLiX\MeinLiX\obj\Debug\netcoreapp3.1\Razor\Views\SQL\Queries1.cshtml.g.cs
+Y:\RiXi\project\source\repos UNIVER\labs 2ks\IStaTP 2 semestr\MeinLiX\MeinLiX\obj\Debug\netcoreapp3.1\Razor\Views\SQL\Queries0.cshtml.g.cs
+Y:\RiXi\project\source\repos UNIVER\labs 2ks\IStaTP 2 semestr\MeinLiX\MeinLiX\obj\Debug\netcoreapp3.1\Razor\Views\SQL\Queries6.cshtml.g.cs
+Y:\RiXi\project\source\repos UNIVER\labs 2ks\IStaTP 2 semestr\MeinLiX\MeinLiX\obj\Debug\netcoreapp3.1\Razor\Views\SQL\Queries7.cshtml.g.cs
+Y:\RiXi\project\source\repos UNIVER\labs 2ks\IStaTP 2 semestr\MeinLiX\MeinLiX\obj\Debug\netcoreapp3.1\Razor\Views\SQL\Queries8.cshtml.g.cs
