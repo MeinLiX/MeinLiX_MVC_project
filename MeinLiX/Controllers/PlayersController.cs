@@ -94,7 +94,7 @@ namespace MeinLiX.Controllers
             };
             ViewData["IdSubdivision"] = new SelectList(_context.Subdivision, "IdSubdivision", "SubdivisionName", player_data.IdSubdivision);
             ViewBag.subdivisionId = player_data.IdSubdivision;
-            //need add empty item
+
             return View(player_data);
         }
 

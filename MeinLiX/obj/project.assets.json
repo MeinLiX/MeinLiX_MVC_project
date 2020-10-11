@@ -9233,11 +9233,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "Y:\\RiXi\\project\\source\\repos UNIVER\\labs 2ks\\IStaTP 2 semestr\\MeinLiX\\MeinLiX\\MeinLiX.csproj",
+      "projectUniqueName": "Y:\\RiXi\\project\\source\\repos c#\\MVC\\MeinLiX\\MeinLiX\\MeinLiX.csproj",
       "projectName": "MeinLiX",
-      "projectPath": "Y:\\RiXi\\project\\source\\repos UNIVER\\labs 2ks\\IStaTP 2 semestr\\MeinLiX\\MeinLiX\\MeinLiX.csproj",
+      "projectPath": "Y:\\RiXi\\project\\source\\repos c#\\MVC\\MeinLiX\\MeinLiX\\MeinLiX.csproj",
       "packagesPath": "C:\\Users\\yurik\\.nuget\\packages\\",
-      "outputPath": "Y:\\RiXi\\project\\source\\repos UNIVER\\labs 2ks\\IStaTP 2 semestr\\MeinLiX\\MeinLiX\\obj\\",
+      "outputPath": "Y:\\RiXi\\project\\source\\repos c#\\MVC\\MeinLiX\\MeinLiX\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -9327,7 +9327,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
       }
     }
   }

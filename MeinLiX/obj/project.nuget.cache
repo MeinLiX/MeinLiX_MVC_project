@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "oFeoHlGqISOcAYT0/1KfErYPih2edEr5DpLgVDFlUGUYElrrgvhjzbGKXAUcg/tAIW4GIZ2c0n4Pvr5tbqJI1w==",
+  "dgSpecHash": "9fgFy1EdfgvMRcf8kGkE3dIvIECsinfGw2iv8wveQLsPUjmCGbV4IX4JhHqBCaLzoYJ/YSnjT92hzxtFxmavxA==",
   "success": true,
-  "projectFilePath": "Y:\\RiXi\\project\\source\\repos UNIVER\\labs 2ks\\IStaTP 2 semestr\\MeinLiX\\MeinLiX\\MeinLiX.csproj",
+  "projectFilePath": "Y:\\RiXi\\project\\source\\repos c#\\MVC\\MeinLiX\\MeinLiX\\MeinLiX.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\yurik\\.nuget\\packages\\mailkit\\2.6.0\\mailkit.2.6.0.nupkg.sha512",
     "C:\\Users\\yurik\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\3.1.4\\microsoft.aspnetcore.cryptography.internal.3.1.4.nupkg.sha512",
