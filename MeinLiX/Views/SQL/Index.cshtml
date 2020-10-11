@@ -1,0 +1,114 @@
+﻿@model MeinLiX.SQLQuery
+@{
+    ViewData["Title"] = "MeinLiX";
+}
+<h1>SQL Queris</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Number</th>
+            <th>Queries</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+
+            <td>TEST</td>
+            <td>
+                <form asp-action="Queries0">
+                    <h4>Організації, у яких перша буква імені:</h4>
+                    <input asp-for="Message1" type="text" required maxlength="1" size="1" /> <br>
+                    <input type="submit" value="PUSH" style="cursor: pointer; margin-top: 5px; background-color:#b68198; color: white" />
+                </form>
+            </td>
+        </tr>
+        <tr>
+
+            <td>1</td>
+            <td>
+                <form asp-action="Queries1">
+                    <h4>Обрати всіх гравців, організації яких, розпочинаються на літеру:</h4>
+                    <input asp-for="Message1" type="text" required maxlength="1" size="1" /> <br>
+                    <input type="submit" value="PUSH" style="cursor: pointer; margin-top: 5px; background-color:#b68198; color: white" />
+                </form>
+            </td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>
+                <form asp-action="Queries2">
+                    <h4>Організації, у яких кількість команд </h4>
+                    <select asp-for="Symbol" asp-items="ViewBag.Symbol"></select>
+                    <h4>ніж у організації з ім'ям:</h4>
+                    <select asp-for="Message1" asp-items="ViewBag.OrgNames"></select> <br>
+                    <input type="submit" value="PUSH" style="cursor: pointer; margin-top: 5px; background-color:#b68198; color: white" />
+                </form>
+            </td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>
+                <form asp-action="Queries3">
+                    <h4>Знайти організації, в яких є команди по грі </h4>
+                    <select asp-for="Message1" asp-items="ViewBag.GameName"></select>
+                    <input type="submit" value="PUSH" style="cursor: pointer; margin-top: 5px; background-color:#b68198; color: white" />
+                </form>
+            </td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>
+                <form asp-action="Queries4">
+                    <h4>Кількість організацій в регіоні </h4>
+                    <select asp-for="Message1" asp-items="ViewBag.Regions"></select>
+                    <input type="submit" value="PUSH" style="cursor: pointer; margin-top: 5px; background-color: #b68198;color: white" />
+                    @if (ViewBag.Query4 != null)
+                    {<text><p class="text-info">В регіоні @ViewBag.Query4 організацій.</p></text>}
+                </form>
+            </td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>
+                <form asp-action="Queries5">
+                    <h4>Сума інвестицій по всіх напрямках спонсора:</h4>
+                    <select asp-for="Message1" asp-items="ViewBag.Sponsors"></select>
+                    <input type="submit" value="PUSH" style="cursor: pointer; margin-top: 5px; background-color: #b68198;color: white" />
+                    @if (ViewBag.Query5 != null)
+                    {<text><p class="text-info">Спонсор інвестував @ViewBag.Query5 коштів.</p></text>}
+                </form>
+            </td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>
+                <form asp-action="Queries6">
+                    <h4>Знайти події, якого спонсорують принаймі всі спонсори події:</h4>
+                    <select asp-for="Message1" asp-items="ViewBag.Events"></select>
+                    <input type="submit" value="PUSH" style="cursor: pointer; margin-top: 5px; background-color: #b68198;color: white" />
+                </form>
+            </td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>
+                <form asp-action="Queries7">
+                    <h4>Знайти гравця, якого спонсорують ті ж спонсори, що гравця:</h4>
+                    <select asp-for="Message1" asp-items="ViewBag.PlayerNicknames"></select>
+                    <input type="submit" value="PUSH" style="cursor: pointer; margin-top: 5px; background-color: #b68198;color: white" />
+                </form>
+            </td>
+        </tr>
+        <tr>
+            <td>8</td>
+            <td>
+                <form asp-action="Queries8">
+                    <h4>Знайти організації за назвою:</h4>
+                    <select asp-for="Message1" asp-items="ViewBag.OrgNames"></select>
+                    <h4> в яких є всі спонсори.</h4>
+                    <input type="submit" value="PUSH" style="cursor: pointer; margin-top: 5px; background-color: #b68198;color: white" />
+                </form>
+            </td>
+        </tr>
+    </tbody>
+</table>

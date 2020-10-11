@@ -1,0 +1,73 @@
+﻿@model IEnumerable<MeinLiX.Player>
+
+@{
+    ViewData["Title"] = "Player";
+}
+
+<h1>player list</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PlayerName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PlayerNickname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PlayerJoin)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PlayerBirth)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdSubdivisionNavigation)
+
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @if (item.PlayerName != null)
+                    {
+                        @Html.DisplayFor(modelItem => item.PlayerName)
+                    }
+                    else
+                    {
+                        @Html.Raw("Empty")
+                    }
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PlayerNickname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PlayerJoin)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PlayerBirth)
+                </td>
+                <td>
+                    @if (item.IdSubdivisionNavigation != null)
+                    {
+                        @Html.DisplayFor(modelItem => item.IdSubdivisionNavigation.SubdivisionName)
+                    }
+                    else
+                    {
+                        @Html.Raw("Free Agent")
+                    }
+                </td>
+                <td>
+                    <a asp-controller="Players" asp-action="Sponsorship" asp-route-id="@item.IdPlayer">Sponsorship</a>
+                    <a asp-controller="Players" asp-action="Edit" asp-route-id="@item.IdPlayer">Edit</a>
+                    <a asp-controller="Players" asp-action="Details" asp-route-id="@item.IdPlayer">Details</a>
+                    <a asp-controller="Players" asp-action="Delete" asp-route-id="@item.IdPlayer">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
