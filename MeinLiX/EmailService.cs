@@ -21,7 +21,7 @@ namespace EmailApp
             using var client = new SmtpClient();
             client.ServerCertificateValidationCallback = (s, c, h, e) => true;
             await client.ConnectAsync("smtp.gmail.com", 465, true);// OUT: SSL: 465 | TLS/STARTTLS: 587   //IN SSL 993 
-            await client.AuthenticateAsync("MeinLixMVC@gmail.com", "dadadaBESTpassword");
+            await client.AuthenticateAsync("MeinLixMVC@gmail.com", "");//CHANGED
             await client.SendAsync(emailMessage);
 
             await client.DisconnectAsync(true);
